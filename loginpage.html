@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+		<style>
+		.login-form {
+			width: 300px;
+			margin: 0 auto;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.login-form h1 {
+			text-align: center;
+			color: #4d4d4d;
+			font-size: 24px;
+			padding: 20px 0 20px 0;
+		}
+		.login-form input[type="password"],
+		.login-form input[type="text"] {
+			width: 100%;
+			padding: 15px;
+			border: 1px solid #dddddd;
+			margin-bottom: 15px;
+			box-sizing:border-box;
+		}
+		.login-form button[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #535b63;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		</style>
+	</head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="./js/jquery_session.js">
+	</script>
+	<script type="text/javascript">
+		function login() {
+			$.ajax({
+				type: 'post',
+				url : 'http://localhost:8080/dynamictodolist_war_exploded/services/login',
+				contentType: 'application/x-www-form-urlencoded',
+				data: 
+				{
+					username: $("#username").val(),
+					password: $("#password").val()
+				},
+				success : function(r) {
+
+					//go to next page
+					$.session.set("auth_token", r.token);
+					var token = $.session.get("auth_token");
+					console.log(token);
+				},
+				crossDomain : true,
+				dataType : 'json',
+				error: function(jQxhr, textStatus, errorThorwn) {
+					console.log(errorThorwn);
+				}
+			});
+		}
+		$(document).ready(function () { 
+
+			$("#login").on('click', function () {
+				login();
+			});
+			
+			
+		});
+
+	</script>
+	
+	<body>
+		<div class="login-form">
+			<h1>Login Form</h1>
+				<input type="text" name="username" id="username" placeholder="Username" required>
+				<input type="password" name="password" id="password" placeholder="Password" required>
+				<button id="login" type="submit"> Login </button>
+		</div>
+	</body>
+</html>

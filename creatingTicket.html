@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agent crreating Ticket</title>
+</head>
+<body>
+
+        <form action="" method="GET">
+        <fieldset>
+        <h4> From: </h4>
+        <select id="departure">
+        <option value ="Choose Departure Station"></option>
+        </select>
+    
+        <h4> To: </h4>
+        <select id="destination">
+        <option value ="Choose Destination Station"></option>
+        </select>
+
+    </br>
+</br>
+
+        <legend>Creating a Ticket</legend>
+        <h5>Price: </h5>
+        <input type="number" name ="price" id="name" required placeholder="Price:" pattern="[1-9]" title="Please type in a price for this route.">
+
+        </fieldset>
+        </form>
+    </br>
+        <button id="submit2">Submit</button>
+
+        <script src="js/jquery-3.4.1.js"></script>
+        <script src="js/creatingTicket.js"> </script>
+
+</body>
+</html>

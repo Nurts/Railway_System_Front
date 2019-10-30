@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+<style>
+		.login-form {
+			width: 300px;
+			margin: 0 auto;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.login-form h2 {
+			text-align: center;
+			color: #4d4d4d;
+			font-size: 24px;
+			padding: 20px 0 20px 0;
+		}
+		.login-form input[type="password"],
+		.login-form input[type="text"] {
+			width: 100%;
+			padding: 15px;
+			border: 1px solid #dddddd;
+			margin-bottom: 15px;
+			box-sizing:border-box;
+		}
+		.login-form button[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #535b63;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		}
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+</head>
+<script type="text/javascript">
+function sendListItem() {
+    var listItem = $("#texttosend").val();
+   	var A = /[a-zA-Z0-9]/g;
+   	if(A.test(listItem) == true){
+   		s = document.getElementById("texttosend");
+		s.style.color = "green";
+		s.innerHTML = "OK";
+   	}
+	
+}
+function sendRegistration(){
+	/*$.ajax({
+		type: "POST",
+		url : '/registration',
+		data: 
+		{
+			login: $("#login").val(),
+			password: $("#password").val()
+			fname: $("#firstname").val()
+			lname: $("#secondname").val()
+			email: $("#email").val()
+		},
+		success : function(r) {
+			//go to next page
+		}
+		dataType : 'json',
+		error: [""]
+	});*/
+}
+function registrate() {
+	if($("#password").val() != $("#repassword").val()){
+		alert("Passwords are different");
+	} else if($("#login").val() == "" || $("#password").val() == "" || $("#firstname").val() == "" || $("#secondname").val() == "" || $("#email").val() == "" || $("#password").val() == ""){
+		alert("Everything has to be filled");
+	} else {
+		sendRegistration();
+	}
+}
+
+$(document).ready(function () { 
+    var listItem = $("#login").val();
+   	var A = /[a-zA-Z0-9]/g;
+   	if(A.test(listItem) == true){
+   		s = document.getElementById("login");
+		s.style.color = "green";
+   	}else {
+		s = document.getElementById("login");
+		s.style.color = "red";
+	}
+	
+    $("#send-item").on('click', function () {
+        registrate();
+    });
+    
+    $("#clean").on('click', function () {
+        clear();
+    });
+    
+    $("#texttosend").on('type', function () {
+        deleteItems();
+    });
+    
+    
+});
+
+</script>
+<body>
+<div class="login-form">
+<h2>Registration</h2>
+
+<table>
+<tr>
+<td><label for="login">Login: </label></td><td><input type="text" id="login" required><br><span id="loginc"> </span></td>
+</tr>
+
+<tr>
+<td><label for="firstname">First Name: </label></td><td><input type="text" id="firstname" required><br></td>
+</tr>
+
+<tr>
+<td><label for="secondname">Second Name: </label></td><td><input type="text" id="secondname" required><br></td>
+</tr>
+
+<tr>
+<td><label for="email">E-mail: </label></td><td><input type="text" id="email" required><br></td>
+</tr>
+
+<tr>
+<td><label for="password">Password: </label></td><td><input type="password" id="password" required><br></td>
+</tr>
+<tr>
+<td><label for="re-password">Repeat Password: </label></td><td><input type="password" id="repassword" required><br></td>
+</tr>
+</table>
+
+<button id="send-item" type="submit" >Submit</button>
+
+</div>
+
+</body>
+</html>

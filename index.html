@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Railway Station</title>
+    <style>
+
+    h1 {text-align: center;}
+    h2 {text-align: right;}
+
+    </style>
+</head>
+<body>
+    <h1> RAILWAY STATION </h1>
+    <h2>My cabinet</h2>
+    <h2>Sign in</h2>
+    <h2> Log in</h2>
+    <h3> Order a ticket: </h3>
+    <form action="" method="GET" >
+            <fieldset>
+    
+    <h4> From: </h4>
+    <select id="departure">
+    <option value ="Choose Departure Station"></option>
+    </select>
+
+    <h4> To: </h4>
+    <select id="destination">
+    <option value ="Choose Destination Station"></option>
+    </select>
+</br>
+</br>
+            <legend> Route search</legend>
+            <input type="date" name="date" min="2019-10-18">
+        </br>
+        </fieldset>
+    </form>
+</br>
+</br>
+    <button id="sumbit1">Submit</button>
+
+    <h3> Today's Schedule</h3>
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+            </tr>
+         </thead>
+         <tbody id="tbody">
+         </tbody>
+    </table>
+
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/main.js"> </script>
+</body>
+</html>

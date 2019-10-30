@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title> User profile </title>
+	
+</head>
+
+<script type="text/javascript">
+
+function updateList(items) {
+    $("#my-list").html("");
+    var i = 0;
+    items.forEach(function (e) {
+        $("#my-list").append("<li>" + i + ". From: " + e.from + " to: " + e.to + "<br> Wagon: " + e.wagonnumber + ", Place: " + e.place + "<br> Price: " + e.price + ". Seat type: " + e.seattype + "</li>");
+        i++;
+    });
+}
+
+function getListItems() {
+    $.ajax({
+        type: "POST",
+        url : '/passenger/tickets',
+		data: 
+		{
+			login: $("#login").val(),
+		},
+        success : function(r) {
+            updateList(r);
+        },
+        dataType : 'json',
+		error: [""]
+    });
+    
+}
+    
+$(document).ready(function () { 
+    getListItems(); 
+});    
+</script>
+
+<body>
+
+<h1> Nur Akhmetov </h1>
+<hr>
+<h2> Tickets: </h2>
+<!-- the list of tickets of passenger 
+If login, then user.getTickets()
+print
+get Name
+-->
+<!-- 
+Table,
+book. Name(first_name+second_name), destination, destination_time
+-->
+<ul id="my-list"></ul>
+</body>
+</html>
