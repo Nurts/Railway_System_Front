@@ -2,23 +2,37 @@
 <html>
 <head>
 
-	<title> User profile </title>
-	
-</head>
+<title> User profile </title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="./js/jquery_session.js">
+</script>
+
+<script>
+	if(sessionStorage.getItem('auth_token') == null){
+		window.location.replace("/login");
+	}
+</script>
 
 <script type="text/javascript">
 
 function updateList(items) {
-    $("#my-list").html("");
+    /*$("#my-list").html("");
     var i = 0;
     items.forEach(function (e) {
         $("#my-list").append("<li>" + i + ". From: " + e.from + " to: " + e.to + "<br> Wagon: " + e.wagonnumber + ", Place: " + e.place + "<br> Price: " + e.price + ". Seat type: " + e.seattype + "</li>");
         i++;
+    });*/
+	$("#my-list").html("");
+	var i = 0;
+    items.data.forEach(function (e) {
+        $("#my-list").append("<li>" + i + ". Train: " + e.Train_ID + " Place: " + e.place + "<br> Price: " + e.price + ", Seat type: " + e.seat_type + " Date: " + e.date + "</li>");
+        i++;
     });
+	
 }
 
 function getListItems() {
-    $.ajax({
+    /*$.ajax({
         type: "POST",
         url : '/passenger/tickets',
 		data: 
@@ -27,18 +41,70 @@ function getListItems() {
 		},
         success : function(r) {
             updateList(r);
-        },
+        }
         dataType : 'json',
 		error: [""]
     });
+	$.ajax({
+		url: "https://reqres.in/api/users",
+		type: "POST",
+		data: {
+			name: "paul rudd",
+			movies: ["I Love You Man", "Role Models"]
+		},
+		success: function(response){
+			console.log(response);
+		}
+	});
+	*/
+	$.ajax({
+		url: "http://localhost:8080/dynamictodolist_war_exploded/services/passenger/tickets",
+		type: "GET",
+		dataType: "application/json",
+		headers: {
+			"Authorization" : "Bearer " + sessionStorage.getItem('auth_token')
+		},
+		success: function(response){
+			updateList(response);
+		},
+		error: function(jQxhr, textStatus, errorThorwn) {
+			console.log(errorThorwn);
+		}
+	});
+	/*$.ajax({
+		type: 'post',
+		url : 'http://localhost:8080/dynamictodolist_war_exploded/services/login',
+		contentType: 'application/x-www-form-urlencoded',
+		data: 
+		{
+			login: $("#login").val(),
+			password: $("#password").val()
+			fname: $("#fname").val()
+			lname: $("#lname").val()
+			email: $("#email").val()
+		},
+		success : function(r) {
+
+		//go to next page
+		$.session.set("auth_token", r.token);
+		var token = $.session.get("auth_token");
+		console.log(token);
+		},
+		crossDomain : true,
+		dataType : 'json',
+		error: function(jQxhr, textStatus, errorThorwn) {
+			console.log(errorThorwn);
+		}
+	});	*/
     
 }
-    
-$(document).ready(function () { 
-    getListItems(); 
-});    
-</script>
 
+$(document).ready(function () { 
+	getListItems(); 
+});    
+
+</script>
+</head>
 <body>
 
 <h1> Nur Akhmetov </h1>
