@@ -34,8 +34,10 @@
 			color: #ffffff;
 		}
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+		
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
+<script src="./js/jquery_session.js"></script>
 </head>
 <script type="text/javascript">
 /*function check() {
@@ -48,7 +50,37 @@
    	}
 	
 }*/
+function authorize(login, pass){
+	$.ajax({
+			type: 'post',
+			url : 'http://localhost:8080/dynamictodolist_war_exploded/services/login',
+			contentType: 'application/x-www-form-urlencoded',
+			data: 
+			{
+				username: login,
+				password: pass
+			},
+			success : function(r) {
+				//go to next page
+				$.session.set("auth_token", r.token);
+				var token = $.session.get("auth_token");
+				console.log(token);
+				window.location.href = "/profile";
+			},
+			crossDomain : true,
+			dataType : 'json',
+			error: function(r) {
+				console.log(r.text);
+				$("#password").val('');
+				alert("Authorization failed! Try again");
+			}
+		});
+}
+
+
 function sendRegistration(){
+	var login = $("#login").val();
+	var pass = $("#password").val();
 	$.ajax({
 		type: 'post',
 		url : 'http://localhost:8080/dynamictodolist_war_exploded/services/passenger/register',
@@ -58,17 +90,18 @@ function sendRegistration(){
 			fname: $("#fname").val(),
 			lname: $("#lname").val(),
 			email: $("#email").val(),
-			login: $("#login").val(),
-			password: $("#password").val()			
+			login: login,
+			password: pass		
 		},
 		success : function(r) {
-			console.log("OK");
-			window.location.href = "/login";
+			console.log(r);
+			authorize(login, pass);
 		},
 		crossDomain : true,
 		dataType : 'json',
 		error: function(jQxhr, textStatus, errorThorwn) {
 			console.log(errorThorwn);
+			alert("Username already exists");
 		}
 	});	
 }
@@ -86,7 +119,11 @@ $(document).ready(function () {
 	
     $("#send-item").on('click', function () {
         registrate();
-    });
+	});
+	
+	$("#to-login").on('click', function(){
+		window.location.assign('/login');
+	});
     
     
 });
@@ -121,7 +158,8 @@ $(document).ready(function () {
 </tr>
 </table>
 
-<button id="send-item" type="submit" >Submit</button>
+<button id="send-item" type="submit" >Sign In</button>
+<button id="to-login" class = "my-3" type="submit" >Log In</button>
 
 </div>
 

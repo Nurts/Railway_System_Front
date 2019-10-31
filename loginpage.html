@@ -58,13 +58,14 @@
 					$.session.set("auth_token", r.token);
 					var token = $.session.get("auth_token");
 					console.log(token);
-					window.location.href = "/profile";
+					window.location.href = "/";
 				},
 				crossDomain : true,
 				dataType : 'json',
-				error: function(jQxhr, textStatus, errorThorwn) {
-					console.log(errorThorwn);
-					
+				error: function(r) {
+					console.log(r.text);
+					$("#password").val('');
+					alert("Authorization failed! Try again");
 				}
 			});
 		}
