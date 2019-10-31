@@ -5,7 +5,7 @@ dropdown.empty();
 dropdown.append('<option selected="true" disabled>Choose Departure Station>');
 dropdown.prop('selectedIndex', 0);
 
-const url = 'stations.json';
+const url = 'http://localhost:8080/dynamictodolist_war_exploded/services/station';
 
 $.getJSON(url, function (data) {
   $.each(data, function (key, entry) {

@@ -8,7 +8,7 @@ const port = 3000
 var app = express(); 
 
 app.use(cors());
-// app.use(express.static(__dirname));
+app.use(express.static(__dirname));
 
 app.get("/login", function(req, res){
   res.sendFile(path.join(__dirname, 'loginpage.html'));
@@ -18,27 +18,18 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get("/profile", function(req, res){
+  res.sendFile(path.join(__dirname, 'profilepage.html'));
+});
 
-// const server = http.createServer(function(req, res){
-//   res.writeHead(200, {'Content-Type': 'text/html'})
-//   fs.readFile('loginpage.html', function(error, data){
-//     if(error){
-//       res.writeHead(404)
-//       res.write('Error: File not found')
-//     } else{
-//       res.write(data)
-//     }
-//     res.end()
-//   })
-// })
+app.get("/register", function(req, res){
+  res.sendFile(path.join(__dirname, 'registration.html'));
+});
 
-// server.listen(port, function(error) {
-//   if(error){
-//     console.log('Something went wrong', error)
-//   }else{
-//     console.log('Server is listening on port ' + port)
-//   }
-// })
+app.get("/create", function(req, res){
+  res.sendFile(path.join(__dirname, 'creatingTicket.html'));
+});
+
 app.listen(PORT, function() {
   console.log(`Listening on Port ${PORT}`);
 });
