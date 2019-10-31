@@ -11,12 +11,36 @@
     h2 {text-align: right;}
 
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="./css/style.css"> 
+    
 </head>
 <body>
-    <h1> RAILWAY STATION </h1>
-    <h2>My cabinet</h2>
-    <h2>Sign in</h2>
-    <h2> Log in</h2>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="height: 80px;">
+        <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
+            <a class="navbar-brand" href = "/">
+                <img src="./assets/logoMain.png" alt=""  class = "ml-5 fixed-top" style="height: 80px; object-fit: contain;">    
+            </a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-2 dual-collapse2" id="myNavbar">
+            <ul class = "navbar-nav ml-auto">
+                <li class = "nav-item mx-5">
+                    <a href = "/profile" class = "nav-link menu-item nav-active">
+                        My Tickets
+                    </a>
+                </li>
+                <li class = "nav-item mx-4">
+                    <button class = "nav-link logout" id = "logout-btn">
+                        Log Out
+                    </button>
+                </li>  
+            </ul>
+            
+        </div>
+    </nav>
+
+
+    
     <h3> Order a ticket: </h3>
     <form action="" method="GET" >
             <fieldset>
@@ -53,7 +77,13 @@
          </tbody>
     </table>
 
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/main.js"> </script>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/jquery_session.js"></script>
+    <script src="./js/main.js"> </script>
+    <script src="./js/global.js"></script>
 </body>
+<script>
+    
+
+</script>
 </html>
