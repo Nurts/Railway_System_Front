@@ -18,10 +18,6 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get("/redir", function(req, res){
-  console.log("redir")
-  res.redirect('/');
-});
 
 // const server = http.createServer(function(req, res){
 //   res.writeHead(200, {'Content-Type': 'text/html'})
