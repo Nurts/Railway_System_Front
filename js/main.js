@@ -27,13 +27,13 @@ $.getJSON(url, function (data) {
 });
 
 
-$.getJSON('routes.json', function(data) {
+$.getJSON('http://localhost:8080/dynamictodolist_war_exploded/services/routes', function(data) {
     $.each(data, function (index, item) {
 
     var eachrow = "<tr>"
-    + "<td>" + item.origin_city + "</td>"
-    + "<td>" + item.destination_city + "</td>"
+    + "<td style=\"text-align: center;\">" + item.origin_city + "</td>"
+    + "<td style=\"text-align: center;\">" + item.destination_city + "</td>"
     + "</tr>";
-$('#tbody').append(eachrow);
+    $('#tbody').append(eachrow);
 
 })});
