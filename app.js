@@ -21,13 +21,10 @@ app.get("/", function(req, res){
 app.get("/profile", function(req, res){
   res.sendFile(path.join(__dirname, 'profilepage.html'));
 });
-<<<<<<< HEAD
 
 app.get("/registration", function(req, res){
   res.sendFile(path.join(__dirname, 'registration.html'));
 });
-=======
->>>>>>> cb8f933a9e30d32f619c25a549eb3f0d4afe4624
 
 app.get("/register", function(req, res){
   res.sendFile(path.join(__dirname, 'registration.html'));
