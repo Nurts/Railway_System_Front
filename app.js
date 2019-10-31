@@ -21,31 +21,22 @@ app.get("/", function(req, res){
 app.get("/profile", function(req, res){
   res.sendFile(path.join(__dirname, 'profilepage.html'));
 });
+<<<<<<< HEAD
 
 app.get("/registration", function(req, res){
   res.sendFile(path.join(__dirname, 'registration.html'));
 });
+=======
+>>>>>>> cb8f933a9e30d32f619c25a549eb3f0d4afe4624
 
-// const server = http.createServer(function(req, res){
-//   res.writeHead(200, {'Content-Type': 'text/html'})
-//   fs.readFile('loginpage.html', function(error, data){
-//     if(error){
-//       res.writeHead(404)
-//       res.write('Error: File not found')
-//     } else{
-//       res.write(data)
-//     }
-//     res.end()
-//   })
-// })
+app.get("/register", function(req, res){
+  res.sendFile(path.join(__dirname, 'registration.html'));
+});
 
-// server.listen(port, function(error) {
-//   if(error){
-//     console.log('Something went wrong', error)
-//   }else{
-//     console.log('Server is listening on port ' + port)
-//   }
-// })
+app.get("/create", function(req, res){
+  res.sendFile(path.join(__dirname, 'creatingTicket.html'));
+});
+
 app.listen(PORT, function() {
   console.log(`Listening on Port ${PORT}`);
 });

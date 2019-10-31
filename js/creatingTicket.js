@@ -5,7 +5,7 @@ dropdown.empty();
 dropdown.append('<option selected="true" disabled>Choose Departure Station>');
 dropdown.prop('selectedIndex', 0);
 
-const url = 'stations.json';
+const url = 'http://localhost:8080/dynamictodolist_war_exploded/services/station';
 
 $.getJSON(url, function (data) {
   $.each(data, function (key, entry) {
@@ -26,8 +26,8 @@ $.getJSON(url, function (data) {
   })
 });
 
-let newTicket = $('#departure');
+/*let newTicket = $('#departure');
 
-$.getJSON('tickets.json', function(data){
+$.getJSON('assets/tickets.json', function(data){
     $.newTicket.append($('<option>').text(entry.city).attr('value', entry.name));
-})
+})*/
