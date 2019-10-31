@@ -8,7 +8,7 @@ const port = 3000
 var app = express(); 
 
 app.use(cors());
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 
 app.get("/login", function(req, res){
   res.sendFile(path.join(__dirname, 'loginpage.html'));
@@ -18,6 +18,10 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get("/redir", function(req, res){
+  console.log("redir")
+  res.redirect('/');
+});
 
 // const server = http.createServer(function(req, res){
 //   res.writeHead(200, {'Content-Type': 'text/html'})

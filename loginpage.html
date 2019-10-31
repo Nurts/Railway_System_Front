@@ -55,6 +55,8 @@
 					$.session.set("auth_token", r.token);
 					var token = $.session.get("auth_token");
 					console.log(token);
+
+					window.location.assign('/');
 				},
 				crossDomain : true,
 				dataType : 'json',
