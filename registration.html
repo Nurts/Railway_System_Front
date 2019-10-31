@@ -38,7 +38,7 @@
 
 </head>
 <script type="text/javascript">
-function sendListItem() {
+/*function check() {
     var listItem = $("#texttosend").val();
    	var A = /[a-zA-Z0-9]/g;
    	if(A.test(listItem) == true){
@@ -47,25 +47,30 @@ function sendListItem() {
 		s.innerHTML = "OK";
    	}
 	
-}
+}*/
 function sendRegistration(){
-	/*$.ajax({
-		type: "POST",
-		url : '/registration',
+	$.ajax({
+		type: 'post',
+		url : 'http://localhost:8080/dynamictodolist_war_exploded/services/passenger/register',
+		contentType: 'application/x-www-form-urlencoded',
 		data: 
 		{
+			fname: $("#fname").val(),
+			lname: $("#lname").val(),
+			email: $("#email").val(),
 			login: $("#login").val(),
-			password: $("#password").val()
-			fname: $("#firstname").val()
-			lname: $("#secondname").val()
-			email: $("#email").val()
+			password: $("#password").val()			
 		},
 		success : function(r) {
-			//go to next page
-		}
+			console.log("OK");
+			window.location.href = "/login";
+		},
+		crossDomain : true,
 		dataType : 'json',
-		error: [""]
-	});*/
+		error: function(jQxhr, textStatus, errorThorwn) {
+			console.log(errorThorwn);
+		}
+	});	
 }
 function registrate() {
 	if($("#password").val() != $("#repassword").val()){
@@ -78,26 +83,9 @@ function registrate() {
 }
 
 $(document).ready(function () { 
-    var listItem = $("#login").val();
-   	var A = /[a-zA-Z0-9]/g;
-   	if(A.test(listItem) == true){
-   		s = document.getElementById("login");
-		s.style.color = "green";
-   	}else {
-		s = document.getElementById("login");
-		s.style.color = "red";
-	}
 	
     $("#send-item").on('click', function () {
         registrate();
-    });
-    
-    $("#clean").on('click', function () {
-        clear();
-    });
-    
-    $("#texttosend").on('type', function () {
-        deleteItems();
     });
     
     
@@ -114,11 +102,11 @@ $(document).ready(function () {
 </tr>
 
 <tr>
-<td><label for="firstname">First Name: </label></td><td><input type="text" id="firstname" required><br></td>
+<td><label for="fname">First Name: </label></td><td><input type="text" id="fname" required><br></td>
 </tr>
 
 <tr>
-<td><label for="secondname">Second Name: </label></td><td><input type="text" id="secondname" required><br></td>
+<td><label for="lname">Last Name: </label></td><td><input type="text" id="lname" required><br></td>
 </tr>
 
 <tr>
