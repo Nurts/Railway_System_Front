@@ -26,6 +26,9 @@ $.getJSON(url, function (data) {
   })
 });
 
+
+
+
 /*let newTicket = $('#departure');
 
 $.getJSON('assets/tickets.json', function(data){
