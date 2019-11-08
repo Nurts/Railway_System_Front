@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>My Cabinet | Railway Station Management</title>
+    <link rel="stylesheet" href="./css/cabinet.css"> 
+    </head>
+    <body>
+            <div class="wrapper">
+                    <nav class = 'navbar'>
+                        <h1 class='logo'> Railway Station </h1>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href='/'>Today's Routes</a></li>
+                            <li><a class='active' href="cabinet.html">My Cabinet</a></li>
+                            <li><a href="#" id = 'logout-btn'>Log out</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+                    <main>
+                            <div class="parallax" data-parallax="scroll" data-z-index="-1" data-image-src="hog78.jpg">
+                            </div>
+                            <h2 class=myticketsheadline>My Tickets</h2>
+                            <div class="today" id='today'>
+                                    <table class='mytickets'>
+                                        <thead>
+                                            <tr>
+                                                <th width='30%'>FROM</th>
+                                                <th width='30%'>TO</th>
+                                                <th width='15%'>SCHEDULED DEPARTURE TIME</th>
+                                                <th width='15%'> SCHEDULED ARRIVAL TIME</th>
+                                                <th width='10%'> REFUND</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Astana</td>
+                                                <td>Almaty</td>
+                                                <td>11.25</td>
+                                                <td>18.25</td>
+                                                <td><button class='refund'>REFUND</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </main>
+                    <script src="./js/jquery-3.4.1.js"></script>
+                    <script src="./js/jquery_session.js"></script>
+                    <script src="./js/parallax.min.js"></script>
+                    <script src="./js/parallax.js"></script> 
+                    <script src="./js/global.js"></script>
+    </body>
+</html>

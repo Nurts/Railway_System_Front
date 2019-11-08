@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Railway Station</title>
+    <style>
+
+    h1 {text-align: center;}
+    h2 {text-align: right;}
+
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="./css/style.css"> 
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="height: 80px;">
+        <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
+            <a class="navbar-brand" href = "/">
+                <img src="./assets/logoMain.png" alt=""  class = "ml-5 fixed-top" style="height: 80px; object-fit: contain;">    
+            </a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-2 dual-collapse2" id="myNavbar">
+            <ul class = "navbar-nav ml-auto">
+                <li class = "nav-item mx-5">
+                    <a href = "/profile" class = "nav-link menu-item nav-active">
+                        My Tickets
+                    </a>
+                </li>
+                <li class = "nav-item mx-4">
+                    <button class = "nav-link logout" id = "logout-btn">
+                        Log Out
+                    </button>
+                </li>  
+            </ul>
+            
+        </div>
+    </nav>
+
+
+    
+    <h1> RAILWAY STATION </h1>
+    <a href="/profile" style="color:black;"><h2>My cabinet</h2></a>
+    <a href="/register" style="color:black;"><h2>Sign in</h2></a>
+    <a href="/login" style="color:black;"><h2>Log in</h2></a>
+    <a href="/create" style="color:black;"><h2>Creating ticket</h2></a>
+
+    <h3> Order a ticket: </h3>
+    <form action="" method="GET" >
+            <fieldset>
+    
+    <h4> From: </h4>
+    <select id="departure">
+    <option value ="Choose Departure Station"></option>
+    </select>
+
+    <h4> To: </h4>
+    <select id="destination">
+    <option value ="Choose Destination Station"></option>
+    </select>
+</br>
+</br>
+            <legend> Route search</legend>
+            <input type="date" name="date" min="2019-10-18">
+        </br>
+        </fieldset>
+    </form>
+</br>
+</br>
+    <button id="sumbit1">Submit</button>
+
+    <h3> Today's Schedule</h3>
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+            </tr>
+         </thead>
+         <tbody id="tbody">
+         </tbody>
+    </table>
+
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/jquery_session.js"></script>
+    <!-- <script src="./js/main.js"> </script> -->
+    <script src="./js/global.js"></script>
+</body>
+</html>

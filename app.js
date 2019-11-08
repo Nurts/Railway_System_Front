@@ -19,7 +19,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/profile", function(req, res){
-  res.sendFile(path.join(__dirname, 'profilepage.html'));
+  res.sendFile(path.join(__dirname, 'cabinet.html'));
 });
 
 app.get("/registration", function(req, res){
