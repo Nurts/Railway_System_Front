@@ -26,10 +26,6 @@ app.get("/registration", function(req, res){
   res.sendFile(path.join(__dirname, 'registration.html'));
 });
 
-app.get("/register", function(req, res){
-  res.sendFile(path.join(__dirname, 'registration.html'));
-});
-
 app.get("/create", function(req, res){
   res.sendFile(path.join(__dirname, 'creatingTicket.html'));
 });
