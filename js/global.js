@@ -9,6 +9,7 @@ $("#logout-btn").on("click", function(){
     window.location.assign('/login');
 });
 
+
 function isAgent(){
     token = $.session.get("auth_token");
     $.ajax({
@@ -16,7 +17,8 @@ function isAgent(){
         url : 'http://localhost:8080/dynamictodolist_war_exploded/services/passenger/type',
         success : function(r) {
             //go to next page
-            return (r.type === 1);
+            console.log(r.type);
+            
         },
         headers: {
             "Authorization": 'Bearer ' + token
@@ -24,7 +26,7 @@ function isAgent(){
         crossDomain : true,
         dataType : 'json',
         error: function(r) {
-            
+            console.log(r.error)
         }
     });
 }
