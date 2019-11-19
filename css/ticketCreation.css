@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+.wrapper {
+    height: 0;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    background: rgba(139, 28, 28, 0.6);
+}
+
+.logo {
+    width: 290px;
+    height: auto;
+    padding: 20px 50px;
+    font-family: Playfair Display;
+    color:white;
+    font-size: 40px;
+    float:left;
+    margin-bottom: 10px;
+
+}
+.navbar ul {
+    float:right;
+    margin-right: 20px;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
+
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: Playfair Display;
+    padding: 6px 13px;
+    transition: 0.4s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover {
+    background: rgb(139, 28, 28);
+    border-radius: 2px;
+}
+
+.parallax {
+    min-height: 750px;
+    background: transparent;
+    margin-top: -430px;
+}
+
+.header {
+    font-family: Playfair Display;
+    font-size: 50px;
+    z-index: 100;
+    margin-top:-70px;
+    color:white;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.refund:hover {
+    background-color: rgb(106, 21, 21);
+    color:white;
+    transition: 0.5s;
+}
+
+.addticket form {
+    position: absolute;
+    background: transparent;
+    width: 430px;
+    padding: 50px 10px 0 30px;
+    box-sizing: border-box;
+    border-radius: 0 0 5px 5px;
+}
+
+form input {
+    height: 50px;
+    width: 84%;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid silver;
+    font-size: 20px;
+    outline:none;
+    font-family: Cambria, serif;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: black;
+}
+
+form select {
+    height: 50px;
+    width: 90%;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid silver;
+    font-size: 20px;
+    outline:none;
+    font-family: Cambria, serif;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+form input[type="submit"] {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 130px;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    line-height: 45px;
+    border-radius: 45px;
+    border-radius: 5px;
+    background: rgb(139, 28, 28);
+    margin-left: 110px;
+}
+
+form input[type="date"]{
+    color: rgb(131, 128, 128);
+}
+
+form input[type="submit"]:hover {
+    background: rgb(106, 21, 21);
+    transition:0.6s;
+}
+
+form label {
+    font-family: Playfair Display;
+    color: black;
+    font-size: 20px;
+}

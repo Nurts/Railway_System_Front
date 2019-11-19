@@ -47,48 +47,43 @@
                         </tr>
                     </thead>
                     <tbody id = "train-table">
-                         <tr>
+                        <!-- <tr>
                             <td>Astana</td>
                             <td>Almaty</td>
                             <td>11.25</td>
                             <td>18.25</td>
-                            <td><button class="button">BUY</button></td>
-                        </tr> 
+                            <td><button class='buybutton'>BUY</button></td>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </main>
 
-        <!--closeBtn = close
-        simpleModal = ticketsModal
-        ticketsModal = modal
-        modalBtn (id) = button (class)
-        -->
-
         <div id="ticketsModal" class="modal">
+
+            <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                
-                <h2> Please choose the number of wagon: </h2>
-
-                <select id='choose-wagon'>
-                </select>
-            </br>
-            <div id='choosingSeat'>
-                <h2>Please choose an available seat: </h2>
-                <div id='seatDescription'>
-                    <p> Available seat:</p>
-                    <img class='seat-images' src="/assets/availableSeat.PNG">
-                    <p> Chosen seat: </p>
-                    <img class='seat-images' src="/assets/chosenSeat.PNG">
-                    <p> Not available seat: </p>
-                    <img class='seat-images' src="/assets/notAvailableSeat.PNG">
-                </div>
-            </br>
-                <div id = 'seatChoosing'>
-                    <button class='seatButton'> </button>
-                </div>
-                </div>
+                <table class='todayschedule'>
+                    <thead>
+                        <tr>
+                            <th width='10%'>Place #</th>
+                            <th width='15%'>Wagon #</th>
+                            <th width='20%'>Seat Type</th>
+                            <th width='20%'>Price</th>
+                            <th width='20%'>Buy</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "ticket-table">
+                        <!-- <tr>
+                            <td>Astana</td>
+                            <td>Almaty</td>
+                            <td>11.25</td>
+                            <td>18.25</td>
+                            <td><button class='buybutton'>BUY</button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
             </div>
         
         </div>
