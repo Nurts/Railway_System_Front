@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+.wrapper {
+    height: 0;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    background: rgba(139, 28, 28, 0.6);
+}
+
+.logo {
+    width: 290px;
+    height: auto;
+    padding: 20px 50px;
+    font-family: Playfair Display;
+    color:white;
+    font-size: 40px;
+    float:left;
+    margin-bottom: 10px;
+
+}
+.navbar ul {
+    float:right;
+    margin-right: 20px;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
+
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: Playfair Display;
+    padding: 6px 13px;
+    transition: 0.4s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover {
+    background: rgb(139, 28, 28);
+    border-radius: 2px;
+}
+
+.parallax {
+    min-height: 750px;
+    background: transparent;
+    margin-top: -430px;
+}
+
+.myticketsheadline {
+    font-family: Playfair Display;
+    font-size: 50px;
+    z-index: 100;
+    margin-top:-70px;
+    color:white;
+    margin-left: 30px;
+}
+
+.mytickets {
+    border-collapse: collapse;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 25px;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgb(49, 44, 44);
+}
+
+.mytickets thead tr {
+    background-color: rgba(139, 28, 28, 0.9);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mytickets th,
+.mytickets td {
+    padding: 20px 60px;
+    text-align: center;
+}
+
+.mytickets tbody tr {
+    border-bottom: 0.2px solid rgba(139, 28, 28, 0.6);
+    font-size: 27px;
+}
+
+.refund {
+    border: 1px solid rgba(139, 28, 28);
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: Playfair Display;
+    cursor:pointer;
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+    transition: 0.8s;
+    border-radius: 4px;
+}
+
+.refund:hover {
+    background-color: rgb(106, 21, 21);
+    color:white;
+    transition: 0.5s;
+}
+
