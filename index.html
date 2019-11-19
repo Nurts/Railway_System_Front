@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railway Station Management</title>
+    <link rel="stylesheet" href="./css/backup1.css"> 
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  -->
+    
+</head>
+<body>
+    <div class="wrapper">
+        <nav class = 'navbar fixed-top'>
+            <a href = '/'><h1 class='logo'> Railway Station </h1></a>
+            <ul>
+                <li><a class='active'  href="#">Home</a></li>
+                <li><a href="#today" onclick="showForToday()">Today's Routes</a></li>
+                <li><a href="/profile">My Cabinet</a></li>
+                <li><a href="#" id = "logout-btn">Log out</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class='search'>
+                <div class='header'>Search Trains:</div>
+                <form id="searchform">
+                    <label for="departure">From: </label>
+                    <select id="departure" ><option value="Departure Station"></option></select>
+                </br>
+                    <label for="destination">To: </label>
+            </br>
+                    <select id="destination" ><option value="Destination Station"></option></select>
+            </br>
+                    <label for='date'>Date: </label>
+                    <input id = "date-input" type="date" name="date" min="10-01-2019" placeholder="20-01-2019"> 
+                    <input type="submit" id = 'search-trains' value="Search">
+                </form>
+            </div>
+            <div class="parallax" data-parallax="scroll" data-z-index="-1" data-image-src="./assets/hog78.jpg"></div>
+            <div class="today" id='today'>
+                <h1 id='todaysroutes' style = "margin: auto">Today's Routes</h1>
+                <table class='todayschedule'>
+                    <thead>
+                        <tr>
+                            <th width='30%'>FROM</th>
+                            <th width='30%'>TO</th>
+                            <th width='15%'>SCHEDULED DEPARTURE TIME</th>
+                            <th width='15%'> SCHEDULED ARRIVAL TIME</th>
+                            <th width='10%'> BUY</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "train-table">
+                         <tr>
+                            <td>Astana</td>
+                            <td>Almaty</td>
+                            <td>11.25</td>
+                            <td>18.25</td>
+                            <td><button class="button">BUY</button></td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!--closeBtn = close
+        simpleModal = ticketsModal
+        ticketsModal = modal
+        modalBtn (id) = button (class)
+        -->
+
+        <div id="ticketsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                
+                <h2> Please choose the number of wagon: </h2>
+
+                <select id='choose-wagon'>
+                </select>
+            </br>
+            <div id='choosingSeat'>
+                <h2>Please choose an available seat: </h2>
+                <div id='seatDescription'>
+                    <p> Available seat:</p>
+                    <img class='seat-images' src="/assets/availableSeat.PNG">
+                    <p> Chosen seat: </p>
+                    <img class='seat-images' src="/assets/chosenSeat.PNG">
+                    <p> Not available seat: </p>
+                    <img class='seat-images' src="/assets/notAvailableSeat.PNG">
+                </div>
+            </br>
+                <div id = 'seatChoosing'>
+                    <button class='seatButton'> </button>
+                </div>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/jquery_session.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="./js/parallax.min.js"></script>
+    <script src="./js/parallax.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/global.js"></script>
+</body>
+</html>

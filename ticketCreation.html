@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Create a Ticket | Railway Station Management</title>
+    <link rel="stylesheet" href="./css/ticketCreation.css"> 
+    </head>
+    <body>
+            <div class="wrapper">
+                    <nav class = 'navbar'>
+                        <h1 class='logo'> Railway Station </h1>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html">Today's Routes</a></li>
+                            <li><a href="cabinet.html">My Cabinet</a></li>
+                            <li><a href="#" id = 'logout-btn'>Log out</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+                    <main>
+                        <div class="parallax" data-parallax="scroll" data-z-index="-1" data-image-src="assets/hog3.jpg">
+                        </div>  
+
+                        <div class='addticket'>
+                            <div class='header'>Create a Ticket</div>
+                            <form id="addticketform">
+                                <label for="departure">From: </label>
+                                <select id="departure" ><option value="Departure Station"></option></select>
+                            </br>
+                                <label for="destination">To: </label>
+                        </br>
+                                <select id="destination" ><option value="Destination Station"></option></select>
+                        </br>
+                                <label for='date'>Date: </label>
+                                <input id = "date-input" type="date" name="date" min="10-01-2019" placeholder="20-01-2019"> 
+                                <input type="submit" id = 'search-trains' value="Search">
+
+                        </br>
+                                
+
+
+
+                        </form>
+                            </form>
+                        </div>
+
+
+
+                    </main>
+                    <script src="./js/jquery-3.4.1.js"></script>
+                    <script src="./js/jquery_session.js"></script>
+                    <script src="./js/parallax.min.js"></script>
+                    <script src="./js/parallax.js"></script> 
+                    <script src="./js/global.js"></script>
+    </body>
+</html>
