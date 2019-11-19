@@ -100,17 +100,12 @@ function showForToday(){
 
 }
 
-
-/* ticketsModal showing */
 function showModal(){
   var modal = document.getElementById("ticketsModal");
   var span = document.getElementsByClassName("close")[0];
-  var open = document.getElementsByClassName('button')[0];
 
-  open.onclick = function() {
-    modal.style.display = 'block';
-  }
-
+  modal.style.display = "block";
+  console.log("here")
   span.onclick = function() {
     modal.style.display = "none";
   }
@@ -121,10 +116,6 @@ function showModal(){
     }
   }
 }
-
-showModal();
-
-
 
 var ticket_template = _.template('<tr> <td><%=place%></td> <td><%=wagon%></td> <td><%=stype%></td> <td><%=price%></td> <td><button class="buybutton">BUY</button></td> </tr>')
 var ticket_table = $("#ticket-table");
@@ -169,21 +160,3 @@ function searchTickets(train_id){
 }
 
 showForToday();
-
-/* Choosing a wagon number */
-
-let wagonNumber = $('#choose-wagon');
-
-wagonNumber.empty();
-
-wagonNumber.append('<option selected="true" disabled>1');
-wagonNumber.prop('selectedIndex', 0);
-
-
-/* NOT URL - NUMBER OF WAGONS NEEDED*/
-$.getJSON(url, function (data) {
-  $.each(data, function (key, entry) {
-    drop.append($('<option>').text(entry.number));
-  })
-});
-

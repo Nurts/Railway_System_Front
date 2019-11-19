@@ -195,7 +195,7 @@ p {
     font-size: 27px;
 }
 
-.button {
+.buybutton {
     border: 1px solid rgba(139, 28, 28);
     padding: 10px 20px;
     font-size: 20px;
@@ -208,7 +208,7 @@ p {
     border-radius: 4px;
 }
 
-.button:hover {
+.buybutton:hover {
     background-color: rgb(106, 21, 21);
     color:white;
     transition: 0.5s;
@@ -223,10 +223,9 @@ p {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    justify-content: center;
     overflow: auto; /* Enable scroll if needed */
-   /* background-color: rgb(0,0,0); /* Fallback color */ 
-    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -236,8 +235,6 @@ p {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgb(0, 0, 0.17);
-
 }
 
 /* The Close Button */
@@ -253,67 +250,4 @@ p {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-}
-
-#choose-wagon {
-    margin-top: 30px;
-    margin-left: 25px;
-    height: 40px;
-    width: 60px;
-    text-align: center;
-    padding: 0 10px;
-    border-radius: 3px;
-    border: 1px solid silver;
-    font-size: 20px;
-    outline:none;
-    font-family: Cambria, serif;
-}
-
-.modal h2 {
-    font-size: 30px;
-    font-family: Playfair Display;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-/* 
-colors:
-available - lightgray
-chosen - rgba(139, 28, 28, 0.05)
-not available - 
-
-*/
-.seatButton {
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-    margin-top: 20px;
-    background-color:rgba(139, 28, 28);
-    border-color: rgba(59, 28, 28, 0.05);
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-.seat-images {
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    margin-left: -13px;
-    margin-top: 21px;
-    margin-bottom: -7px;
-    margin-right: 20px;
-
-}
-
-.modal p {
-    display: inline;
-    font-size: 20px;
-}
-
-#seatDescription {
-    margin-left: 70px;
-}
-
-#seatChoosing {
-    margin-left: 30px;
 }
