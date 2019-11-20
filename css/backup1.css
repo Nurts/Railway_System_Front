@@ -258,7 +258,7 @@ p {
     cursor: pointer;
 }
 
-#choose-wagon {
+#choose-wagon-select, #choose-seat-select {
     margin-top: 30px;
     margin-left: 25px;
     height: 40px;
@@ -279,46 +279,9 @@ p {
     margin-left: 10px;
 }
 
-/* 
-colors:
-available - lightgray
-chosen - rgba(139, 28, 28, 0.05)
-not available - 
-
-*/
-.seatButton {
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-    margin-top: 20px;
-    background-color:rgba(139, 28, 28);
-    border-color: rgba(59, 28, 28, 0.05);
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-.seat-images {
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    margin-left: -13px;
-    margin-top: 21px;
-    margin-bottom: -7px;
-    margin-right: 20px;
-
-}
-
 .modal p {
     display: inline;
     font-size: 20px;
-}
-
-#seatDescription {
-    margin-left: 70px;
-}
-
-#seatChoosing {
-    margin-left: 30px;
 }
 
 .buybutton {
@@ -333,3 +296,98 @@ not available -
     transition: 0.8s;
     border-radius: 4px;
 }
+
+#choose-seat-div {
+    display: none;
+}
+
+.modal form {
+    margin: 20px;
+}
+
+.modal form label {
+    color: black;
+    margin-top: 30px; 
+}
+
+.modal form input {
+    width: 300px; 
+}
+
+#idnumber-form {
+    margin-top: -234px;
+    margin-right: 120px;
+    float: right;
+}
+
+#idnumber-form label {
+    display: inline-block;
+    margin-top: 5px;
+    height: 1px;
+    width: 80px;
+    font-size: 17px;
+}
+
+#idnumber-form input {
+    height: 1px;
+    width: 5px;
+    font-family: Cambria, serif;
+    margin-top: 17px;
+}
+
+#idnumberform-radio {
+    width: 150px;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+#passport {
+    display: inline-block;
+}
+
+.modal p {
+    font-size: 21px;
+    margin: 5px;
+}
+
+
+#personal-info-form {
+    display: none;
+}
+
+#idnumberform-insert {
+    width: 530px;
+    margin-top: 27px;
+}
+
+#idnumberform-insert input{
+    float: right;
+    height: 50px;
+    width: 40%;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid silver;
+    font-size: 20px;
+    outline:none;
+    font-family: Cambria, serif;
+    margin-bottom: 20px;
+    margin-top: -6px;
+}
+
+#idnumberform-insert label {
+    width: 250px;
+    font-size: 20px;
+}
+
+#personal-info {
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+
+#submit-form {
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
