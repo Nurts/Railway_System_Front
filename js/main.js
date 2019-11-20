@@ -201,23 +201,66 @@ function createTickets(train_id){
   });
 }
 
-
-
 /* Choosing a wagon number */
 
-let wagonNumber = $('#choose-wagon');
+let wagonNumber = $('#choose-wagon-select');
 
 wagonNumber.empty();
 
-wagonNumber.append('<option selected="true" disabled>1');
+wagonNumber.append('<option selected="true" >0');
 wagonNumber.prop('selectedIndex', 0);
 
+const wgn = './assets/wagon.json';
 
-/* NOT URL - NUMBER OF WAGONS NEEDED*/
-$.getJSON(url, function (data) {
+/* NOT WGN - NUMBER OF WAGONS NEEDED*/
+$.getJSON(wgn, function (data) {
   $.each(data, function (key, entry) {
-    drop.append($('<option>').text(entry.number));
+    wagonNumber.append($('<option>').attr('value', entry.number).text(entry.number));
   })
+});
+ 
+
+$(document).ready(function(){
+  $('#choose-wagon-select').on('change', function() {
+    if ( this.value == '0')
+    {
+      $("#choose-seat-div").hide();
+    }
+    else
+    {
+      $("#choose-seat-div").show();
+    }
+  });
+});
+
+/* Choosing an availabe seat from a selected wagon */
+
+let seatNumber = $('#choose-seat-select');
+
+seatNumber.empty();
+
+seatNumber.append('<option selected="true" disabled>0');
+seatNumber.prop('selectedIndex', 0);
+
+
+/* NOT WGN - NUMBER OF AVAILABLE SEATS NEEDED*/
+$.getJSON(wgn, function (data) {
+  $.each(data, function (key, entry) {
+    seatNumber.append($('<option>').attr('value', entry.number).text(entry.number));
+  })
+});
+
+$(document).ready(function(){
+  $('#choose-seat-select').on('change', function() {
+    if ( this.value == '0')
+    {
+      $("#personal-info-form").hide();
+    }
+    else
+    {
+      $("#personal-info-form").show();
+    }
+  });
 });
 
 
