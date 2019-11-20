@@ -11,11 +11,14 @@
         <nav class = 'navbar fixed-top'>
             <a href = '/'><h1 class='logo'> Railway Station </h1></a>
             <ul>
+                <li><a href="#" id = "logout-btn">Log out</a></li>
+            </ul>
+            <ul id = 'navbar-items'>
                 <li><a class='active'  href="#">Home</a></li>
                 <li><a href="#today" onclick="showForToday()">Today's Routes</a></li>
                 <li><a href="/profile">My Cabinet</a></li>
-                <li><a href="#" id = "logout-btn">Log out</a></li>
             </ul>
+            
         </nav>
         <main>
             <div class='search'>
@@ -39,11 +42,13 @@
                 <table class='todayschedule'>
                     <thead>
                         <tr>
-                            <th width='30%'>FROM</th>
-                            <th width='30%'>TO</th>
-                            <th width='15%'>SCHEDULED DEPARTURE TIME</th>
-                            <th width='15%'> SCHEDULED ARRIVAL TIME</th>
-                            <th width='10%'> BUY</th>
+                            <th width='5%'>TRAIN #</th>
+                            <th width='17%'>FROM</th>
+                            <th width='18%'>TO</th>
+                            <th width='20%'>SCHEDULED DEPARTURE TIME</th>
+                            <th width='20%'>SCHEDULED ARRIVAL TIME</th>
+                            <th width='10%'>PRICE</th>
+                            <th width='10%'>BUY</th>
                         </tr>
                     </thead>
                     <tbody id = "train-table">
@@ -69,13 +74,13 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 
-                <h2> Please choose the number of wagon: </h2>
+                <span> <h2>Please choose the number of wagon:</h2> </span>
 
-                <select id='choose-wagon'>
+                <select id='choose-wagon' style="display: inline-block">
                 </select>
             </br>
             <div id='choosingSeat'>
-                <h2>Please choose an available seat: </h2>
+                <span><h2>Please choose an available seat:</h2> </span>
                 <div id='seatDescription'>
                     <p> Available seat:</p>
                     <img class='seat-images' src="/assets/availableSeat.PNG">
@@ -99,7 +104,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
     <script src="./js/parallax.min.js"></script>
     <script src="./js/parallax.js"></script>
-    <script src="./js/main.js"></script>
     <script src="./js/global.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
