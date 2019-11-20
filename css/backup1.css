@@ -157,22 +157,24 @@ p {
 
 .today {
     font-family: Playfair Display;
-    font-size: 30px;
+    font-size: 15px;
     margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #todaysroutes {
+    text-align: center;
     color: rgb(148, 28, 28);
 }
 
 .todayschedule {
     border-collapse: collapse;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 25px;
     margin-left: 14px;
-    font-size: 25px;
+    margin-right: 14px;
+    font-size: 20px;
     min-width: 700px;
     box-shadow: 0 0 20px rgb(49, 44, 44);
 }
@@ -186,12 +188,13 @@ p {
 
 .todayschedule th,
 .todayschedule td {
-    padding: 20px 70px;
+    padding: 20px 10px;
     text-align: center;
 }
 
 .todayschedule tbody tr {
     border-bottom: 0.2px solid rgba(139, 28, 28, 0.6);
+    background-color: white;    
     font-size: 27px;
 }
 
@@ -316,4 +319,17 @@ not available -
 
 #seatChoosing {
     margin-left: 30px;
+}
+
+.buybutton {
+    border: 1px solid rgba(139, 28, 28);
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: Playfair Display;
+    cursor:pointer;
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+    transition: 0.8s;
+    border-radius: 4px;
 }

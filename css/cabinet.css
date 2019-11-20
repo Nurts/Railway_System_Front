@@ -64,8 +64,7 @@ html {
     font-family: Playfair Display;
     font-size: 50px;
     z-index: 100;
-    margin-top:-70px;
-    color:white;
+    color:rgba(139, 28, 28, 0.9);
     margin-left: 30px;
 }
 
@@ -75,7 +74,7 @@ html {
     margin-bottom: 25px;
     margin-left: 25px;
     margin-right: 25px;
-    font-size: 25px;
+    font-size: 20px;
     min-width: 600px;
     box-shadow: 0 0 20px rgb(49, 44, 44);
 }
@@ -89,7 +88,7 @@ html {
 
 .mytickets th,
 .mytickets td {
-    padding: 20px 60px;
+    padding: 20px 10px;
     text-align: center;
 }
 
