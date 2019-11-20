@@ -31,7 +31,11 @@ app.get("/registration", function(req, res){
 });
 
 app.get("/create", function(req, res){
-  res.sendFile(path.join(__dirname, 'creatingTicket.html'));
+  res.sendFile(path.join(__dirname, 'ticketCreation.html'));
+});
+
+app.get("/employees", function(req, res){
+  res.sendFile(path.join(__dirname, 'employee.html'));
 });
 
 app.listen(PORT, function() {
