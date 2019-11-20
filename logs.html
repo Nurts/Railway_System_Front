@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Logs | Railway Station Management</title>
+    <link rel="stylesheet" href="./css/cabinet.css"> 
+    <link rel="stylesheet" href="./css/logs.css"> 
+    </head>
+    <body>
+            <div class="wrapper">
+                    <nav class = 'navbar'>
+                        <a href = '/'><h1 class='logo'> Railway Station </h1></a>
+                        <ul>
+                            <li><a href="#" id = "logout-btn">Log out</a></li>
+                        </ul>
+                        <ul id = 'navbar-items'>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/" onclick="showForToday()">Today's Routes</a></li>
+                            <li><a href="/profile">My Cabinet</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+                    <main>
+                            <div class="parallax" data-parallax="scroll" data-z-index="-1" data-image-src="assets/hog78.jpg">
+                            </div>
+                            <span class=myticketsheadline>Logs</span>
+                            
+                            <div class="window">
+                                <label class="switch">
+                                    <input type="checkbox" id = "log-checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                <div class="terminal" id = "log-field">
+                                  <p class="log">
+                                    Here are the logs...
+                                  </p>
+                                </div>
+
+                                
+                              </div>
+                              <div>
+                                
+                                
+                              </div>
+                              
+                    </main>
+                    <script src="./js/jquery-3.4.1.js"></script>
+                    <script src="./js/jquery_session.js"></script>
+                    <script src="./js/parallax.min.js"></script>
+                    <script src="./js/parallax.js"></script> 
+                    <script src="./js/global.js"></script>
+                    <script src="./js/logs.js"></script>
+    </body>
+</html>

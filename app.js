@@ -18,6 +18,10 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get("/logs", function(req, res){
+  res.sendFile(path.join(__dirname, 'logs.html'));
+});
+
 app.get("/profile", function(req, res){
   res.sendFile(path.join(__dirname, 'cabinet.html'));
 });
