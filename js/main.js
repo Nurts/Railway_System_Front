@@ -143,37 +143,7 @@ var ticket_table = $("#ticket-table");
 var found_tickets  = [];
 
 
-function searchTickets(train_id, from_order, to_order){
-  let day = ticketDate.getDate();
-  let month = ticketDate.getMonth() + 1;
-  let year = ticketDate.getFullYear();
-  return $.ajax({
-    type: 'get',
-    url : 'http://localhost:8080/dynamictodolist_war_exploded/services/routes/' + train_id + '/tickets',
-    data:{
-      "day" : day,
-      "month" : month,
-      "year" : year,
-      "fromOrder" : from_order,
-      "toOrder" : to_order
-    },
-    success : function(r) {
-      let i = 0;  
-      found_tickets = []
-      for(i = 0; i < r.length; i++){
-        let ticket = r[i];
-        console.log(ticket);
-        found_tickets.push(ticket);
-      }
-      showModal();
-      
-    },
-    dataType : 'json',
-    error: function(r) {
-        alert("No Tickets Available");
-    }
-  });
-}
+
 
 function createTickets(train_id){
   let day = ticketDate.getDate();
@@ -213,37 +183,29 @@ wagonNumber.empty();
 wagonNumber.append('<option selected="true" >0');
 wagonNumber.prop('selectedIndex', 0);
 
-const wgn = './assets/wagon.json';
-
-/* NOT WGN - NUMBER OF WAGONS NEEDED*/
-$.getJSON(wgn, function (data) {
-  $.each(data, function (key, entry) {
-    wagonNumber.append($('<option>').attr('value', entry.number).text(entry.number));
-  })
-});
- 
-
-$(document).ready(function(){
-  $('#choose-wagon-select').on('change', function() {
-    if ( this.value == '0')
-    {
-      $("#choose-seat-div").hide();
-    }
-    else
-    {
-      $("#choose-seat-div").show();
-    }
-  });
-});
-
-/* Choosing an availabe seat from a selected wagon */
-
 let seatNumber = $('#choose-seat-select');
 
 seatNumber.empty();
 
 seatNumber.append('<option selected="true" disabled>0');
 seatNumber.prop('selectedIndex', 0);
+
+
+
+// const wgn = './assets/wagon.json';
+
+/* NOT WGN - NUMBER OF WAGONS NEEDED*/
+// $.getJSON(wgn, function (data) {
+//   $.each(data, function (key, entry) {
+//     wagonNumber.append($('<option>').attr('value', entry.number).text(entry.number));
+//   })
+// });
+ 
+
+
+
+/* Choosing an availabe seat from a selected wagon */
+
 
 
 /* NOT WGN - NUMBER OF AVAILABLE SEATS NEEDED*/
@@ -254,18 +216,70 @@ seatNumber.prop('selectedIndex', 0);
 // });
 
 
-searchTickets().then(function(){
-  let wagons = {};
-  
-  found_tickets.forEach(function(ticket){
+
+function searchTickets(train_id, from_order, to_order){
+  let day = ticketDate.getDate();
+  let month = ticketDate.getMonth() + 1;
+  let year = ticketDate.getFullYear();
+  return $.ajax({
+    type: 'get',
+    url : 'http://localhost:8080/dynamictodolist_war_exploded/services/routes/' + train_id + '/tickets',
+    data:{
+      "day" : day,
+      "month" : month,
+      "year" : year,
+      "fromOrder" : from_order,
+      "toOrder" : to_order
+    },
+    success : function(r) {
+      let i = 0;  
+      found_tickets = []
+      for(i = 0; i < r.length; i++){
+        let ticket = r[i];
+        console.log(ticket);
+        found_tickets.push(ticket);
+      }
+      showModal();
+      
+    },
+    dataType : 'json',
+    error: function(r) {
+        alert("No Tickets Available");
+    }
+  }).then(function(){
+    let wagons = {};
     
-    if(wagons[ticket.wagonNumber] !== true){
-      wagons[ticket.wagonNumber] = true;
-      seatNumber.append($('<option>').attr('value', ticket.wagonNumber).text(ticket.wagonNumber));
+    found_tickets.forEach(function(ticket){
+      
+      if(wagons[ticket.wagonNumber] !== true){
+        wagons[ticket.wagonNumber] = true;
+        wagonNumber.append($('<option>').attr('value', ticket.wagonNumber).text(ticket.wagonNumber));
+      }
+    });
+  });
+}
+
+
+
+$(document).ready(function(){
+  $('#choose-wagon-select').on('change', function() {
+    if ( this.value == '0')
+    {
+      $("#choose-seat-div").hide();
+    }
+    else
+    {
+      var selected_wagon = this.value;
+      found_tickets.forEach(function(ticket){
+        
+        if(ticket.wagonNumber == parseInt(selected_wagon)){
+          seatNumber.append($('<option>').attr('value', ticket.seatNumber).text(ticket.seatNumber));
+        }
+      });
+      $("#choose-seat-div").show();
     }
   });
 });
-
 
 $(document).ready(function(){
   $('#choose-seat-select').on('change', function() {
