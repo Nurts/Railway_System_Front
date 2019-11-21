@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Manage routes | Railway Station Management</title>
+    <link rel="stylesheet" href="./css/routes.css"> 
+    </head>
+    <body>
+            <div class="wrapper"> 
+                    <nav class = 'navbar fixed-top'>
+			            <a href = '/'><h1 class='logo'> Railway Station </h1></a>
+			            <ul>
+			                <li><a href="#" id = "logout-btn">Log out</a></li>
+			            </ul>
+			            <ul id = 'navbar-items'>
+			                <li><a href="/">Home</a></li>
+			                <li><a href="/profile">My Cabinet</a></li> 
+			            </ul>
+			        </nav>
+                    </div>
+                    <main>
+                            <div class="parallax" data-parallax="scroll">
+                            </div>
+                            <h2 class=myticketsheadline>Manage routes</h2>
+                            <div class="today" id='today'>
+                                    <table class='mytickets' id="trainh">
+                                        <thead>
+                                            <tr>
+                                                <th width='4%'>TRAIN TYPE ID</th>
+                                                <th width='20%'>COMPANY NAME</th>
+                                                <th width='40%'>DAYS</th>
+                                                <th width='4%'>SUBMIT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody> <!-- id = "train-table"-->
+                                            <tr> <!-- id='trainh' -->
+                                                <td><select class="hey" id="typeid"><option selected="selected">1</option></select></td>
+                                                <td><input type="text" class="hey" id="compname"></input></td>
+                                                <td>
+                                                	<input type="checkbox" id="1"> Mon / 
+                                                	<input type="checkbox" id="2"> Tue /
+                                                	<input type="checkbox" id="3"> Wed /
+                                                	<input type="checkbox" id="4"> Thu /
+                                                	<input type="checkbox" id="5"> Fri /
+                                                	<input type="checkbox" id="6"> Sat /
+                                                	<input type="checkbox" id="0"> Sun  
+                                                </td>
+                                                <td><button class='paycheck' id='submit' onclick="create();">SUBMIT</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table> 
+                                </div>
+                            
+                    </main>
+                    <script src="./js/jquery-3.4.1.js"></script>
+                    <script src="./js/jquery_session.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+                    <script src="./js/parallax.min.js"></script>
+                    <script src="./js/parallax.js"></script> 
+                    <script src="./js/global.js"></script>
+                    <script src="./js/routes.js"></script>
+    </body>
+</html>
