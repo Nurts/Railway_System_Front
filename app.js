@@ -18,6 +18,10 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get("/logs", function(req, res){
+  res.sendFile(path.join(__dirname, 'logs.html'));
+});
+
 app.get("/profile", function(req, res){
   res.sendFile(path.join(__dirname, 'cabinet.html'));
 });
@@ -34,8 +38,13 @@ app.get("/employees", function(req, res){
   res.sendFile(path.join(__dirname, 'employee.html'));
 });
 
+<<<<<<< HEAD
 app.get("/routes", function(req, res){
   res.sendFile(path.join(__dirname, 'routes.html'));
+=======
+app.get("/manage-routes", function(req, res){
+  res.sendFile(path.join(__dirname, 'manageroutes.html'));
+>>>>>>> 90e274f7a80fe29964deb3ecae350b0e70710b45
 });
 
 app.listen(PORT, function() {

@@ -70,35 +70,57 @@
         modalBtn (id) = button (class)
         -->
 
-        <div id="ticketsModal" class="modal">
+            <div id="ticketsModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                
-                <span> <h2>Please choose the number of wagon:</h2> </span>
+                <div id = "choose-wagon-div">
+                    <h2> Please choose the number of wagon: </h2>
+                    <select id = 'choose-wagon-select'>
+                    </select>
+                </div>
+                <div id = "choose-seat-div">
+                    <h2> Select an available seat: </h2>
+                    <select id = 'choose-seat-select'>
+                    </select>
+                </div>
+                <div id = 'personal-info'>
+                    <form action = "index.html" method:='POST' id = 'personal-info-form'>
+                        <div id='name-form'>
+                             <label for="first-name-input">First Name: </label>
+                         </br>
+                        </br>
+                            <input id = 'first-name-input' type="text" name="first-name" required>
+                        </br>
+                            <label for="last-name-input">Last Name: </label>
+                        </br>
+                            <input id = 'last-name-input' type="text" name="last-name" required>
+                        </div>
 
-                <select id='choose-wagon' style="display: inline-block">
-                </select>
-            </br>
-            <div id='choosingSeat'>
-                <span><h2>Please choose an available seat:</h2> </span>
-                <div id='seatDescription'>
-                    <p> Available seat:</p>
-                    <img class='seat-images' src="/assets/availableSeat.PNG">
-                    <p> Chosen seat: </p>
-                    <img class='seat-images' src="/assets/chosenSeat.PNG">
-                    <p> Not available seat: </p>
-                    <img class='seat-images' src="/assets/notAvailableSeat.PNG">
+                        <div id = 'idnumber-form'>
+                            <p> Please choose the document type: </p>
+                        </br>
+                        <div id ='idnumberform-radio'>
+                                <label class = 'label-for-radio' for='stateid'>State ID</label>
+                                <input type='radio' id = 'stateid' class = 'radiobutton' name = 'document' value = 'stateid'>
+                                <br>
+                                <label class = 'label-for-radio' for='passport'>Passport</label>
+                                <input type='radio' id = 'passport' class = 'radiobutton' name = 'document' value = 'passport'>
+                                <br>
+                        </div>
+                        <div id = 'idnumberform-insert'>
+                                <label for ='idnumber-input'>Number of your document: </label>
+                                <input id = 'idnumber-input' type='text' name = 'idnumber' required>
+                        </div>
+                        </div>
+                        <div id='submit-form'>
+                                <input type="submit" name = 'submit' value='Submit'>
+                            </div>
+                    </form>
                 </div>
-            </br>
-                <div id = 'seatChoosing'>
-                    <button class='seatButton'> </button>
-                </div>
-                </div>
-            </div>
-        
+            </br>   
         </div>
-        
     </div>
+</div>
     <script src="./js/jquery-3.4.1.js"></script>
     <script src="./js/jquery_session.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
