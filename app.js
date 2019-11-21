@@ -38,6 +38,15 @@ app.get("/employees", function(req, res){
   res.sendFile(path.join(__dirname, 'employee.html'));
 });
 
+app.get("/routes", function(req, res){
+  res.sendFile(path.join(__dirname, 'routes.html'));
+});
+
+app.get("/manage-routes", function(req, res){
+  res.sendFile(path.join(__dirname, 'manageroutes.html'));
+
+});
+
 app.listen(PORT, function() {
   console.log(`Listening on Port ${PORT}`);
 });
