@@ -102,7 +102,7 @@ function activateRoute(train_id){
         "train-id" : train_id
       },
       success : function(r) {
-        alert("Notification sent successfully!");
+        alert("Notification is sent successfully!");
       },
       headers: {
         "Authorization": 'Bearer ' + token
