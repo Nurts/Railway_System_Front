@@ -44,7 +44,10 @@ app.get("/routes", function(req, res){
 
 app.get("/manage-routes", function(req, res){
   res.sendFile(path.join(__dirname, 'manageroutes.html'));
+});
 
+app.get("/refund", function(req, res){
+  res.sendFile(path.join(__dirname, 'refund.html'));
 });
 
 app.listen(PORT, function() {
