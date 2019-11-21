@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Routes</title>
+    <link rel="stylesheet" href="./css/employee.css"> 
+    </head>
+    <body>
+            <div class="wrapper">
+                    <nav class = 'navbar fixed-top'>
+			            <a href = '/'><h1 class='logo'> Railway Station </h1></a>
+			            <ul>
+			                <li><a href="#" id = "logout-btn">Log out</a></li>
+			            </ul>
+			            <ul id = 'navbar-items'>
+			                <li><a href="/">Home</a></li>
+			                <li><a href="/profile">My Cabinet</a></li> 
+			            </ul>
+			        </nav>
+                    </div>
+                    <main>
+                            <div class="parallax" data-parallax="scroll" data-z-index="-1" data-image-src="assets/hog78.jpg">
+                            </div>
+                            <h2 class=myticketsheadline>Routes</h2>
+                            <div class="today" id='today'>
+                                    <table class='mytickets'>
+                                        <thead>
+                                            <tr>
+                                                <th width='10%'>Route id</th>
+                                                <th width='20%'>Company Name</th>
+                                                <th width='10%'>Train Type id</th>
+                                                <th width='20%'>Activation Status</th>
+                                                <th width='20%'>Activate</th>
+                                                <th width='20%'>Deactivate</th>
+                                                <th width='20%'>Notify</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id = "train-table">
+                                            <tr>
+                            
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </main>
+                    <script src="./js/jquery-3.4.1.js"></script>
+                    <script src="./js/jquery_session.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+                    <script src="./js/parallax.min.js"></script>
+                    <script src="./js/parallax.js"></script> 
+                    <script src="./js/global.js"></script>
+                    <script src="./js/manageroutes.js"></script>
+    </body>
+</html>

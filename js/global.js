@@ -38,7 +38,8 @@ checkType().then(function(){
     if(userType == "manager"){
         $('#navbar-items').append("<li><a href='/logs'>Show Logs</a></li>")
         $('#navbar-items').append("<li><a href='/employees'>Employees</a></li>")
-        $('#navbar-items').append("<li><a href='/routes'>Manage Routes</a></li>")
+        $('#navbar-items').append("<li><a href='/routes'>Create Routes</a></li>")
+        $('#navbar-items').append("<li><a href='/manage-routes'>Manage Routes</a></li>")
     }
 
     if(userType == "agent"){
