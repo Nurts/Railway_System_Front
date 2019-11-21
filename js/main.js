@@ -73,7 +73,7 @@ function searchTrains(){
       let i = 0;  
       for(i = 0; i < r.length; i++){
         let train = r[i];
-        console.log(train);
+        // console.log(train);
         table.append(row_template({
           from: train.from, 
           to: train.to,
@@ -176,19 +176,13 @@ function createTickets(train_id){
 
 /* Choosing a wagon number */
 
-let wagonNumber = $('#choose-wagon-select');
+var wagonNumber = $('#choose-wagon-select');
 
-wagonNumber.empty();
 
-wagonNumber.append('<option selected="true" >0');
-wagonNumber.prop('selectedIndex', 0);
 
-let seatNumber = $('#choose-seat-select');
+var seatNumber = $('#choose-seat-select');
 
-seatNumber.empty();
 
-seatNumber.append('<option selected="true" disabled>0');
-seatNumber.prop('selectedIndex', 0);
 
 
 
@@ -236,7 +230,7 @@ function searchTickets(train_id, from_order, to_order){
       found_tickets = []
       for(i = 0; i < r.length; i++){
         let ticket = r[i];
-        console.log(ticket);
+        // console.log(ticket);
         found_tickets.push(ticket);
       }
       showModal();
@@ -248,7 +242,9 @@ function searchTickets(train_id, from_order, to_order){
     }
   }).then(function(){
     let wagons = {};
-    
+    wagonNumber.empty();
+    wagonNumber.append('<option selected="true" >0');
+    wagonNumber.prop('selectedIndex', 0);
     found_tickets.forEach(function(ticket){
       
       if(wagons[ticket.wagonNumber] !== true){
@@ -270,15 +266,18 @@ $(document).ready(function(){
     else
     {
       var selected_wagon = this.value;
+      seatNumber.empty();
+      seatNumber.append('<option selected="true" disabled>0');
+      seatNumber.prop('selectedIndex', 0);
       found_tickets.forEach(function(ticket){
-        
-        if(ticket.wagonNumber == parseInt(selected_wagon)){
+        if(ticket.wagonNumber == parseInt(selected_wagon) && ticket.available){
           seatNumber.append($('<option>').attr('value', ticket.seatNumber).text(ticket.seatNumber));
         }
       });
       $("#choose-seat-div").show();
     }
   });
+  
 });
 
 $(document).ready(function(){
@@ -294,7 +293,55 @@ $(document).ready(function(){
   });
 });
 
-
+$('#submit').on('click',function(){
+  let wagonNum = parseInt($('#choose-wagon-select').val());
+  let seatNum = parseInt($('#choose-seat-select').val());
+  let firstName = $('#first-name-input').val();
+  let lastName = $('#last-name-input').val();
+  let documentId = $('#idnumber-input').val();
+  let documentType = $("input[name='document']:checked").val();
+  let i = 0;
+  let selectedTrain = null;
+  for(i = 0; i < found_trains.length; i++){
+    if(found_tickets[0].TrainLegTrainId === found_trains[i].id){
+      selectedTrain = found_trains[i];
+    }
+  }
+  // console.log(selectedTrain.departure_time)
+  console.log(wagonNum, seatNum, firstName, lastName, documentId, documentType);
+  token = $.session.get("auth_token");
+  $.ajax({
+    type: 'post',
+    url : 'http://localhost:8080/dynamictodolist_war_exploded/services/routes/' + selectedTrain.id + '/tickets',
+    data:{
+      "wagon_number" : wagonNum,
+      "place" : seatNum,
+      "init-date" : selectedTrain.initial_date,
+      "departure-datetime" : selectedTrain.arrival_time,
+      "arrival-datetime" : selectedTrain.departure_time,
+      "from-order" : selectedTrain.from_order,
+      "to-order" : selectedTrain.to_order,
+      "from" : selectedTrain.from_id,
+      "to" : selectedTrain.to_id,
+      "first-name" : firstName,
+      "last-name" : lastName,
+      "document-type" : documentType,
+      "document-id" : documentId
+    },
+    success : function(r) {
+      alert("You have successfully bought the ticket!")
+      $("#ticketsModal").hide();
+    },
+    headers: {
+      "Authorization": 'Bearer ' + token
+    },
+    dataType : 'json',
+    error: function(r) {
+      alert("Seat is not available");
+      $("#ticketsModal").hide();
+    }
+  });
+});
 checkType().then( function (){
   if(userType === "agent"){
     row_template = _.template("<tr><td><%=id%></td>\
@@ -308,3 +355,5 @@ checkType().then( function (){
   }
   showForToday();
 });
+
+

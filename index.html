@@ -84,7 +84,7 @@
                     </select>
                 </div>
                 <div id = 'personal-info'>
-                    <form action = "index.html" method:='POST' id = 'personal-info-form'>
+                    <form id = 'personal-info-form'>
                         <div id='name-form'>
                              <label for="first-name-input">First Name: </label>
                          </br>
@@ -101,7 +101,7 @@
                         </br>
                         <div id ='idnumberform-radio'>
                                 <label class = 'label-for-radio' for='stateid'>State ID</label>
-                                <input type='radio' id = 'stateid' class = 'radiobutton' name = 'document' value = 'stateid'>
+                                <input type='radio' id = 'stateid' class = 'radiobutton' name = 'document' value = 'stateid' checked>
                                 <br>
                                 <label class = 'label-for-radio' for='passport'>Passport</label>
                                 <input type='radio' id = 'passport' class = 'radiobutton' name = 'document' value = 'passport'>
@@ -113,7 +113,7 @@
                         </div>
                         </div>
                         <div id='submit-form'>
-                                <input type="submit" name = 'submit' value='Submit'>
+                                <input id = "submit" type="button" name = 'submit' value='Submit'>
                             </div>
                     </form>
                 </div>

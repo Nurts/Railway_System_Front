@@ -106,6 +106,25 @@ form select {
 }
 
 
+form input[type="button"] {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 130px;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    line-height: 45px;
+    border-radius: 45px;
+    border-radius: 5px;
+    background: rgb(139, 28, 28);
+    margin-left: 110px;
+}
+
+form input[type="button"]:hover {
+    background: rgb(106, 21, 21);
+    transition:0.6s;
+}
+
 form input[type="submit"] {
     margin-top: 30px;
     margin-bottom: 40px;
@@ -120,14 +139,16 @@ form input[type="submit"] {
     margin-left: 110px;
 }
 
-form input[type="date"]{
-    color: rgb(131, 128, 128);
-}
-
 form input[type="submit"]:hover {
     background: rgb(106, 21, 21);
     transition:0.6s;
 }
+
+form input[type="date"]{
+    color: rgb(131, 128, 128);
+}
+
+
 
 form label {
     font-family: Playfair Display;
@@ -262,7 +283,7 @@ p {
     margin-top: 30px;
     margin-left: 25px;
     height: 40px;
-    width: 60px;
+    width: 80px;
     text-align: center;
     padding: 0 10px;
     border-radius: 3px;
@@ -329,8 +350,8 @@ p {
 }
 
 #idnumber-form input {
-    height: 1px;
-    width: 5px;
+    height: 15px;
+    width: 15px;
     font-family: Cambria, serif;
     margin-top: 17px;
 }
