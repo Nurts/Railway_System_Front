@@ -13,7 +13,7 @@ checkType().then( function (){
   <td><button class='paycheck' onclick=searchTickets(<%=id%>)>PAYCHECK</button></td></tr>")
   }
   listEmployees();
-});//
+});
 
 function listEmployees(){
   token = $.session.get("auth_token");
@@ -72,35 +72,3 @@ function searchTickets(employee_id){
     }
   });
 }
-/*
-function createTickets(train_id){
-  let day = ticketDate.getDate();
-  let month = ticketDate.getMonth() + 1;
-  let year = ticketDate.getFullYear();
-  token = $.session.get("auth_token");
-  $.ajax({
-    type: 'post',
-    url : globalUrl + 'services/agent/create-seat-instances',
-    contentType: 'application/x-www-form-urlencoded',
-    data:{
-      "day" : day,
-      "month" : month,
-      "year" : year,
-      "train-id" : train_id
-    },
-    headers: {
-      "Authorization": 'Bearer ' + token
-    },
-    success : function(r) {
-      alert("Tickets for this date successfully created")
-      
-    },
-    dataType : 'json',
-    error: function(r) {
-        alert("Tickets are already created");
-    }
-  });
-}
-
-*/
-
