@@ -17,15 +17,25 @@ checkType().then( function (){
   }
 });
 
-function getName(station_id){
+var stations = [];
+
+function getStations(){
 	const url = globalUrl + 'services/station';
 	$.getJSON(url, function (data) {
 	  $.each(data, function (key, entry) {
-	  	if(entry.id == station_id){
-	  		return entry.name;
-	  	}
+	  	stations.push(entry)
 	  });
 	});
+}
+getStations();
+
+function getName(station_id){
+  let i = 0;
+  for(i = 0; i < stations.length; i++){
+    if(stations[i].id == station_id){
+      return stations[i].city;
+    }
+  }
 }
 
 function getRefundRequests(){
@@ -49,7 +59,7 @@ function getRefundRequests(){
           seat: ticket.seatNumber,
           dep: ticket.departureDatetime, 
           arr: ticket.arrivalDatetime,
-          ticketid: ticket.id
+          ticketid: ticket.ticketId
         }));
       }
       $([document.documentElement, document.body]).animate({
@@ -67,16 +77,17 @@ function getRefundRequests(){
   });
 }
 
-function acceptRefund(){
+function acceptRefund(ticket_id){
   token = $.session.get("auth_token");
   $.ajax({
-    type: 'post',
+    type: 'delete',
     url : globalUrl + 'services/agent/accept-refund',
     data:{
       "ticket-id" : ticket_id
     },
     success : function(r) {
       alert("You have accepted refund request");
+      location.reload();
     },
     headers: {
       "Authorization": 'Bearer ' + token
@@ -87,10 +98,10 @@ function acceptRefund(){
         alert("Accept finished with error");
     }
   });
-  getRefundRequests();
+  // getRefundRequests();
 }
 
-function rejectRefund(){
+function rejectRefund(ticket_id){
   token = $.session.get("auth_token");
   $.ajax({
     type: 'post',
@@ -99,7 +110,8 @@ function rejectRefund(){
       "ticket-id" : ticket_id
     },
     success : function(r) {
-      alert("You have accepted refund request");
+      alert("You have rejected refund request");
+      location.reload();
     },
     headers: {
       "Authorization": 'Bearer ' + token
@@ -110,6 +122,6 @@ function rejectRefund(){
         alert("Reject finished with error");
     }
   });
-  getRefundRequests();
+  
 }
 

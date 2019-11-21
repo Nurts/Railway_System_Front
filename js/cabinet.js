@@ -9,32 +9,45 @@ var row_template = _.template("<tr><td><%=fname%></td>\
   <td><%=seat%></td>\
   <td><%=dep%></td>\
   <td><%=arr%></td>\
-  <td><button class='refund' onclick=makeRefund(<%=ticketid%>)>REFUND</button></td></tr>")
+  <td><button class='refund' onclick=\"makeRefund(<%=ticketid%>)\">REFUND</button></td></tr>")
 
 getListItems();
 
-function getName(station_id){
+var stations = [];
+
+function getStations(){
 	const url = globalUrl + 'services/station';
 	$.getJSON(url, function (data) {
 	  $.each(data, function (key, entry) {
-	  	if(entry.id == station_id){
-	  		return entry.name;
-	  	}
+	  	stations.push(entry)
 	  });
 	});
+}
+getStations();
+
+function getName(station_id){
+  let i = 0;
+  for(i = 0; i < stations.length; i++){
+    if(stations[i].id == station_id){
+      return stations[i].city;
+    }
+  }
 }
 
 function getListItems(){
   token = $.session.get("auth_token");
+  
   $.ajax({
     type: 'get',
     url : globalUrl + 'services/passenger/tickets',
     success : function(r) {
       table.empty();
       let i = 0;  
+      
       for(i = 0; i < r.length; i++){
         let ticket = r[i];
         console.log(ticket);
+        console.log(ticket.departureDatetime);
         table.append(row_template({
           fname: ticket.firstName, 
           lname: ticket.secondName,
@@ -45,7 +58,7 @@ function getListItems(){
           seat: ticket.seatNumber,
           dep: ticket.departureDatetime, 
           arr: ticket.arrivalDatetime,
-          ticketid: ticket.id
+          ticketid: ticket.ticketId
         }));
       }
       $([document.documentElement, document.body]).animate({
@@ -66,6 +79,7 @@ function getListItems(){
 
 function makeRefund(ticket_id){
   token = $.session.get("auth_token");
+  console.log(ticket_id);
   $.ajax({
     type: 'post',
     url : globalUrl + 'services/passenger/refund-request',
@@ -74,12 +88,11 @@ function makeRefund(ticket_id){
     },
     success : function(r) {
       alert("You made refund request");
-      $("#submit").prop('disabled','disabled');
+      // $("#submit").prop('disabled','disabled');
     },
     headers: {
       "Authorization": 'Bearer ' + token
     },
-    crossDomain : true,
     dataType : 'json',
     error: function(r) {
         alert("Refund finished with error");

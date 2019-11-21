@@ -6,7 +6,7 @@ dropdown.append('<option selected="true" disabled>Departure Station');
 dropdown.prop('selectedIndex', 0);
 
 const url = globalUrl + 'services/station';
-
+var selectedTrain = null;
 
 $.getJSON(url, function (data) {
   $.each(data, function (key, entry) {
@@ -215,6 +215,12 @@ function searchTickets(train_id, from_order, to_order){
   let day = ticketDate.getDate();
   let month = ticketDate.getMonth() + 1;
   let year = ticketDate.getFullYear();
+  let i = 0;
+  for(i = 0; i < found_trains.length; i++){
+    if(found_trains[i].id === train_id && found_trains[i].from_order === from_order && found_trains[i].to_order === to_order){
+      selectedTrain = found_trains[i];
+    }
+  }
   return $.ajax({
     type: 'get',
     url : 'http://localhost:8080/dynamictodolist_war_exploded/services/routes/' + train_id + '/tickets',
@@ -300,14 +306,7 @@ $('#submit').on('click',function(){
   let lastName = $('#last-name-input').val();
   let documentId = $('#idnumber-input').val();
   let documentType = $("input[name='document']:checked").val();
-  let i = 0;
-  let selectedTrain = null;
-  for(i = 0; i < found_trains.length; i++){
-    if(found_tickets[0].TrainLegTrainId === found_trains[i].id){
-      selectedTrain = found_trains[i];
-    }
-  }
-  // console.log(selectedTrain.departure_time)
+
   console.log(wagonNum, seatNum, firstName, lastName, documentId, documentType);
   token = $.session.get("auth_token");
   $.ajax({
@@ -317,8 +316,8 @@ $('#submit').on('click',function(){
       "wagon_number" : wagonNum,
       "place" : seatNum,
       "init-date" : selectedTrain.initial_date,
-      "departure-datetime" : selectedTrain.arrival_time,
-      "arrival-datetime" : selectedTrain.departure_time,
+      "departure-datetime" : selectedTrain.departure_time,
+      "arrival-datetime" : selectedTrain.arrival_time,
       "from-order" : selectedTrain.from_order,
       "to-order" : selectedTrain.to_order,
       "from" : selectedTrain.from_id,
