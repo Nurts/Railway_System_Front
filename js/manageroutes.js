@@ -8,9 +8,9 @@ checkType().then( function (){
   <td><%=cname%></td>\
   <td><%=typeid%></td>\
   <td><%=status%></td>\
-  <td><button class='activate' onclick=activateRoute(<%=id%>)>ACTIVATE</button></td>\
-  <td><button class='deactivate' onclick=deactivateRoute(<%=id%>)>DEACTIVATE</button></td>\
-  <td><button class='sendmail' onclick=sendNotification(<%=id%>)>Send Auto-Notification</button></td></tr>")
+  <td><button class='paycheck' onclick=activateRoute(<%=id%>)>ACTIVATE</button></td>\
+  <td><button class='paycheck' onclick=deactivateRoute(<%=id%>)>DEACTIVATE</button></td>\
+  <td><button class='paycheck' onclick=sendNotification(<%=id%>)>Send Auto-Notification</button></td></tr>")
   }
   listEmployees();
 });//
